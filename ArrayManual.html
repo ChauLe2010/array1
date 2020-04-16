@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<script>
+    function inputArray(marks) {
+        let N=+prompt("Nhap so phan tu cua mang: ");
+        for(let i=0;i<N;i++){
+            marks[i]=+prompt("Nhap phan tu thu "+i+": ");
+        }
+    }
+    function displayArray(marks){
+        document.write("<br>Mang vua nhap la: ");
+        for(let i=0;i<marks.length;i++){
+            document.write(marks[i]+"  ");
+        }
+    }
+    function findMinValue(marks){
+        let min=false;
+        if(marks.length>0){
+            min=marks[0];
+            for(let i=1;i<marks.length;i++){
+                if(marks[i]<min){
+                    min=marks[i];
+                }
+            }
+        }
+        return min;
+    }
+    function findMaxValue(marks){
+        let max=false;
+        if(marks.length>0){
+            max=marks[0];
+            for(let i=1;i<marks.length;i++){
+                if(marks[i]>max){
+                    max=marks[i];
+                }
+            }
+        }
+        return max;
+    }
+    function sum(marks){
+        let s=0;
+        for(let i=0;i<marks.length;i++){
+            s+=marks[i];
+        }
+        return s;
+    }
+    function avg(marks){
+        let s=0;
+        for(let i=0;i<marks.length;i++){
+            s+=marks[i];
+        }
+        return s/marks.length;
+    }
+
+    function insertValue(marks,index,value){
+        let N=marks.length;
+        if(index<0||index>N)
+            return;
+        for(k=N-1;k>=index;k--){
+            marks[k+1]=marks[k];
+        }
+        marks[index]=value;
+    }
+
+
+    let studentMark=new Array(2,4,5,1,8,10);
+    // inputArray(studentMark);
+    displayArray(studentMark);
+    insertValue(studentMark,-1,100);
+    displayArray(studentMark);
+    // document.write("<br>Tong cac phan tu la: "+sum(studentMark));
+    // document.write("<br>Trung binh cac phan tu la: "+avg(studentMark));
+    // let minValue=findMinValue(studentMark);
+    // if(minValue==false)
+    //     document.write("<br>Mang rong");
+    // else
+    //     document.write("<br>Gia tri nho nhat trong mang la: "+minValue);
+</script>
+</body>
+</html>
